@@ -6,7 +6,8 @@ exports.handler = schedule("* * * * *", async (event) => {
   axios
     .get("https://gxoib8zz.directus.app/users", {})
     .then((response) => {
-      console.log(response.data);
+      console.log("status: Success");
+      console.log("response: ", response);
     })
     .catch((error) => {
       console.log(error);

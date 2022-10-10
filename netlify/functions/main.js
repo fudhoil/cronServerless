@@ -1,4 +1,4 @@
-const { default: axios } = require("axios");
+import { default as axios } from "axios";
 
 // Get the video element
 const video = document.querySelector("#video");

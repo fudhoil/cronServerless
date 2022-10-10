@@ -4,7 +4,7 @@ import axios from "axios";
 exports.handler = schedule("* * * * *", async (event) => {
   // TODO implement
   axios
-    .get("https://gxoib8zz.directus.app/users/me", {
+    .get("https://gxoib8zz.directus.app/users", {
       headers: {
         Authorization: "Bearer 1234567890",
       },

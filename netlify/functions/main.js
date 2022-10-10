@@ -35,10 +35,7 @@ const detectCode = () => {
         axios.get(
           "https://gxoib8zz.directus.app/items/register?fields=*.*&filter[email][eq]=" +
             barcode.data
-        )
-          .then((res) => {
-            console.log(res.data.data[0].id);
-          }
+        );
       }
     })
     .catch((err) => {

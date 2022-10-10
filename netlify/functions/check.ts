@@ -3,6 +3,7 @@ import axios from "axios";
 
 exports.handler = schedule("0 1 * * *", async (event) => {
   // TODO implement
+
   axios.get("https://gxoib8zz.directus.app/users");
   const response = {
     statusCode: 200,

@@ -1,48 +1,13 @@
-import { default as axios } from "axios";
+new Vue({
+  el: "#app",
 
-// Get the video element
-const video = document.querySelector("#video");
-// Check if device has camera
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  // Use video without audio
-  const constraints = {
-    video: true,
-    audio: false,
-  };
+  methods: {
+    onDecode(url) {
+      window.location.href = url;
+    },
 
-  // Start video stream
-  navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then((stream) => (video.srcObject = stream));
-}
-
-// Create new barcode detector
-const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
-
-// Detect code function
-const detectCode = () => {
-  // Start detecting codes on to the video element
-  barcodeDetector
-    .detect(video)
-    .then((codes) => {
-      // If no codes exit function
-      if (codes.length === 0) return;
-
-      for (const barcode of codes) {
-        // Log the barcode to the console
-        console.log(barcode);
-        document.getElementById("data").val() = barcode.data;
-        axios.get(
-          "https://gxoib8zz.directus.app/items/register?fields=*.*&filter[email][eq]=" +
-            barcode.data
-        );
-      }
-    })
-    .catch((err) => {
-      // Log an error if one happens
-      console.error(err);
-    });
-};
-
-// Run detect code function every 100 milliseconds
-setInterval(detectCode, 100);
+    onInit(promise) {
+      promise.then(console.log).catch(console.error);
+    },
+  },
+});

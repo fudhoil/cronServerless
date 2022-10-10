@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 // Get the video element
 const video = document.querySelector("#video");
 // Check if device has camera
@@ -29,6 +31,14 @@ const detectCode = () => {
       for (const barcode of codes) {
         // Log the barcode to the console
         console.log(barcode);
+        document.getElementById("data").val() = barcode.data;
+        axios.get(
+          "https://gxoib8zz.directus.app/items/register?fields=*.*&filter[email][eq]=" +
+            barcode.data
+        )
+          .then((res) => {
+            console.log(res.data.data[0].id);
+          }
       }
     })
     .catch((err) => {

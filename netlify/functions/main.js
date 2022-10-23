@@ -1,3 +1,6 @@
 exports.handler = async (event, context) => {
-  return console.log('Berhasil horee');
+  return {     
+    statusCode: ,     
+    body: . ({message: "Hello World"})    
+}
 }

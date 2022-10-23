@@ -1,3 +1,18 @@
-<div id="app" style="width: 600px">
-  <qrcode-stream @decode="onDecode" @init="onInit"></qrcode-stream>
-</div>
+<script src="https://unpkg.com/vue-qrcode-reader/dist/VueQrcodeReader.umd.min.js"></script>
+<qrcode-stream @decode="onDecode"></qrcode-stream>
+
+<script src="./vue.js"></script>
+<script src="./VueQrcodeReader.umd.min.js"></script>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      message: "Hello Vue!",
+    },
+    methods: {
+      onDecode(content) {
+        console.log(content);
+      },
+    },
+  });
+</script>

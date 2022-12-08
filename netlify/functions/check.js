@@ -2,7 +2,7 @@ import { schedule } from "@netlify/functions";
 
 exports.handler = schedule("0 1 * * *", async (event) => {
 
-  await fetch("https://gxoib8zz.directus.app/users");
+  await fetch("");
   const response = {
     statusCode: 200,
     body: JSON.stringify("Checked!"),
